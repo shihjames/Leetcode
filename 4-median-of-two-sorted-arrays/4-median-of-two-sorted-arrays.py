@@ -8,7 +8,7 @@ class Solution:
         half = total // 2
         left, right = 0, len(short)-1
         
-        while left <= right+1:
+        while left -1 <= right:
             shortMid = left + (right - left) // 2
             longMid = half - shortMid - 2
             
