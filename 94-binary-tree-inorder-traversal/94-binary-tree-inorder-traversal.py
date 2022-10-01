@@ -4,6 +4,11 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+"""
+Time = O(n)
+Space = worst: O(n), average: O(log(n))
+"""
 class Solution:
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         def traverse(node):
