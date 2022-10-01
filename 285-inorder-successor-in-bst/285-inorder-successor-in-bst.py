@@ -4,7 +4,10 @@
 #         self.val = x
 #         self.left = None
 #         self.right = None
-
+"""
+Time = worst: O(n), balanced: O(log(n))
+Space = O(1)
+"""
 class Solution:
     def inorderSuccessor(self, root: TreeNode, p: TreeNode) -> Optional[TreeNode]:
         successor = None
