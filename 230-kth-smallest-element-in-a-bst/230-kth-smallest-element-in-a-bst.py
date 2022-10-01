@@ -4,6 +4,11 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+"""
+Time = O(n)
+Space = O(h), where h is the height of the tree
+"""
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         def traverse(node):
