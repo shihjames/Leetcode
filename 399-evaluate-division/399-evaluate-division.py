@@ -1,3 +1,8 @@
+"""
+Time = O(M*N)
+Space = O(N)
+Where N = # of equations, M = # of Quries
+"""
 class Solution:
     def calcEquation(self, equations: List[List[str]], values: List[float], queries: List[List[str]]) -> List[float]:
         def traverse(start, end, cur, visited):
