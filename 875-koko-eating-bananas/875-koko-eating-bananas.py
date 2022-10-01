@@ -1,5 +1,7 @@
 """
-
+Time = O(nlog(m))
+Space = O(1)
+where m: max of piles, n: len of piles
 """
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
