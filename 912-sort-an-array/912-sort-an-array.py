@@ -1,6 +1,6 @@
 """
 Time = O(nlog(n))
-Space = O(1)
+Space = O(log(n))
 """
 class Solution:
     def sortArray(self, nums: List[int]) -> List[int]: 
