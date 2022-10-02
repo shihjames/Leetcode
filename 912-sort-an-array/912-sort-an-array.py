@@ -4,10 +4,10 @@ Space = O(log(n))
 """
 class Solution:
     def sortArray(self, nums: List[int]) -> List[int]: 
-        def qsort(s, e):
-            if s < e:
-                pivot = nums[random.randint(s,e)]
-                i, j = s, e
+        def qsort(start, end):
+            if start < end:
+                pivot = nums[random.randint(start, end)]
+                i, j = start, end
                 while i <= j:
                     while i <= j and nums[i] < pivot:
                         i += 1
@@ -17,7 +17,7 @@ class Solution:
                         nums[i], nums[j] = nums[j], nums[i]
                         i += 1
                         j -= 1
-                qsort(s, j)
-                qsort(i, e)
+                qsort(start, j)
+                qsort(i, end)
         qsort(0, len(nums) - 1)
         return nums
