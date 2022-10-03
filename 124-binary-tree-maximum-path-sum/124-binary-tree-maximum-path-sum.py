@@ -4,6 +4,10 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+"""
+Time = O(n)
+Space = O(h)
+"""
 class Solution:
     def maxPathSum(self, root: Optional[TreeNode]) -> int:
         def helper(node):
@@ -12,10 +16,9 @@ class Solution:
                 return 0
             left = max(helper(node.left), 0)
             right = max(helper(node.right), 0)
-            
-            curSum = node.val + left + right
-            maxSum = max(maxSum, curSum)
-            
+            # Update maxSum
+            maxSum = max(maxSum, node.val + left + right)
+            # Path with greatest sum
             return node.val + max(left, right)
         
         maxSum = float("-inf")
