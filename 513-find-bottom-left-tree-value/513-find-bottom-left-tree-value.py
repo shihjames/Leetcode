@@ -4,6 +4,10 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+"""
+Time = O(n)
+Space = O(d)
+"""
 class Solution:
     def findBottomLeftValue(self, root: Optional[TreeNode]) -> int:
         queue = deque([root])
@@ -18,5 +22,3 @@ class Solution:
                     queue.append(node.right)
                     
         return leftmost
-            
-            
