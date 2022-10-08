@@ -1,3 +1,7 @@
+"""
+Time = O(m*n)
+Space = O(m+n)
+"""
 class Solution:
     def multiply(self, num1: str, num2: str) -> str:
         num1 = num1[::-1]
