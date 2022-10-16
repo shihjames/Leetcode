@@ -7,12 +7,19 @@
 
 """
 Time = O(n)
-Space = O(h)
+Space = O(n)
 """
 class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
-        if not p and not q:
-            return True
-        if not p or not q or p.val != q.val:
-            return False
-        return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+        queue = deque([(p, q)])
+        while queue:
+            p, q = queue.popleft()
+            if not p and not q:
+                continue
+            elif not p or not q or p.val != q.val:
+                return False
+            if p:
+                queue.append((p.left, q.left))
+                queue.append((p.right, q.right))
+        return True
+            
