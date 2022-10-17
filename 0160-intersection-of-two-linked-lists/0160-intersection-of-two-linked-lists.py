@@ -4,6 +4,10 @@
 #         self.val = x
 #         self.next = None
 
+"""
+Time = O(m+n)
+Space = O(m)
+"""
 class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
         node_set = set()
