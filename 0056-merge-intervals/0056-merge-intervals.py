@@ -1,3 +1,7 @@
+"""
+Time = O(nlog(n))
+Space = O(log(n))
+"""
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         intervals.sort()
