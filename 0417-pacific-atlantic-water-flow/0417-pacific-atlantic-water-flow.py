@@ -1,3 +1,7 @@
+"""
+Time = O(row*col)
+Space = O(row*col)
+"""
 class Solution:
     def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
         def dfs(row, col, visited, prev_h):
