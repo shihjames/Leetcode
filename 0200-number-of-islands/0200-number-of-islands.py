@@ -1,3 +1,7 @@
+"""
+Time = O(rows*cols)
+Space = O(min(rows, cols))
+"""
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
         rows, cols = len(grid), len(grid[0])
@@ -17,7 +21,12 @@ class Solution:
                                 queue.append((new_row, new_col))
 
         return num_island
-        
+# """
+# Time = O(rows*cols)
+# Space = O(rows*cols)
+# """
+# class Solution:
+#     def numIslands(self, grid: List[List[str]]) -> int:
 #         def dfs(row, col):
 #             if row < 0 or col < 0 or row >= rows or col >= cols or grid[row][col] == "0":
 #                 return
