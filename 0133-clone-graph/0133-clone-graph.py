@@ -5,6 +5,11 @@ class Node:
         self.val = val
         self.neighbors = neighbors if neighbors is not None else []
 """
+
+"""
+Time = O(V+E)
+Space = O(V)
+"""
 from collections import deque
 class Solution:
     def cloneGraph(self, node: 'Node') -> 'Node':
