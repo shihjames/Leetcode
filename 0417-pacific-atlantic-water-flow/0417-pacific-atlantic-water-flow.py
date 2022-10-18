@@ -1,6 +1,6 @@
 """
-Time = O(row*col)
-Space = O(row*col)
+Time = O(rows*cols)
+Space = O(rows*cols)
 """
 from collections import deque
 class Solution:
