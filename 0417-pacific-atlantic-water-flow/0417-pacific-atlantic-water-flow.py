@@ -2,7 +2,6 @@
 Time = O(row*col)
 Space = O(row*col)
 """
-
 from collections import deque
 class Solution:
     def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
@@ -32,9 +31,7 @@ class Solution:
         atlantic = bfs(atlantic_queue)
         
         return list(pacific.intersection(atlantic))
-            
-            
-        
+
 #         def dfs(row, col, visited, prev_h):
 #             if (row, col) in visited or row < 0 or col < 0 or row >= rows or col >= cols or heights[row][col] < prev_h:
 #                 return
