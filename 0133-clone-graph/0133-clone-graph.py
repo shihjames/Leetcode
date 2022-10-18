@@ -5,21 +5,25 @@ class Node:
         self.val = val
         self.neighbors = neighbors if neighbors is not None else []
 """
-
+"""
+Time = O(V+E)
+Space = O(V)
+"""
 class Solution:
     def cloneGraph(self, node: 'Node') -> 'Node':
         def dfs(node):
-            if node in visited:
-                return visited[node]
-            clone = Node(node.val)
-            visited[node] = clone
+            if node in cloned:
+                return cloned[node]
+            
+            copy = Node(node.val)
+            cloned[node] = copy
             
             for neighbor in node.neighbors:
-                clone.neighbors.append(dfs(neighbor))
+                copy.neighbors.append(dfs(neighbor))
             
-            return clone
+            return copy
         
         if not node:
             return None
-        visited = {}
+        cloned = {}
         return dfs(node)
