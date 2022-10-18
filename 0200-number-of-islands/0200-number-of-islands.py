@@ -1,24 +1,19 @@
-"""
-Time = O(row*col)
-Spce = O(min(row, col))
-"""
-
-from collections import deque
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
-        count = 0
-        
-        for row in range(len(grid)):
-            for col in range(len(grid[0])):
+        def dfs(row, col):
+            if row < 0 or col < 0 or row >= rows or col >= cols or grid[row][col] == "0":
+                return
+            grid[row][col] = "0"
+            for dr, dc in [(1, 0), (0, 1), (-1, 0), (0, -1)]:
+                dfs(row + dr, col + dc)
+            
+        rows, cols = len(grid), len(grid[0])
+        num_island = 0
+        for row in range(rows):
+            for col in range(cols):
                 if grid[row][col] == "1":
-                    count += 1
-                    grid[row][col] = "0"
-                    queue = deque([(row, col)])
-                    while queue:
-                        r, c = queue.popleft()
-                        for dr, dc in [(1, 0), (0, 1), (-1, 0), (0, -1)]:
-                            if 0 <= r+dr < len(grid) and 0 <= c+dc < len(grid[0]) and grid[r+dr][c+dc] == "1":
-                                grid[r+dr][c+dc] = "0"
-                                queue.append((r+dr, c+dc))
-        return count
-                    
+                    num_island += 1
+                    dfs(row, col)
+        
+        return num_island
+            
