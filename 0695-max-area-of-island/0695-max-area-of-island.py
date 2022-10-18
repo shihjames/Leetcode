@@ -1,21 +1,20 @@
-"""
-Time = O(n)
-Space = O(n)
-"""
 class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
-        def dfs(i, j, count):
-            if i < 0 or i > len(grid)-1 or j < 0 or j > len(grid[0])-1 or grid[i][j] == 0:
-                return count-1
-            grid[i][j] = 0
-            for dx, dy in [(1, 0), (0, 1), (-1, 0), (0, -1)]:
-                count = dfs(i+dx, j+dy, count+1)
+        def dfs(row, col, count):
+            if row < 0 or col < 0 or row >= rows or col >= cols or grid[row][col] == 0:
+                return count - 1
+            grid[row][col] = 0
+            for dr, dc in [(1, 0), (0, 1), (-1, 0), (0, -1)]:
+                count = dfs(row+dr, col+dc, count+1)
             return count
+            
         
-        area = 0
-        for row in range(len(grid)):
-            for col in range(len(grid[0])):
+        rows, cols, mx_area = len(grid), len(grid[0]), 0
+        for row in range(rows):
+            for col in range(cols):
                 if grid[row][col] == 1:
-                    cur = dfs(row, col, 1)
-                    area = max(area, cur)
-        return area
+                    cur_area = dfs(row, col, 1)
+                    mx_area = max(mx_area, cur_area)
+        
+        return mx_area
+                
