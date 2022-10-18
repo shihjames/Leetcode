@@ -1,3 +1,8 @@
+"""
+Time = O(M)
+Space = O(1)
+where M is the total number of chars in all words
+"""
 class Solution:
     def isAlienSorted(self, words: List[str], order: str) -> bool:
         word_dict = {}
