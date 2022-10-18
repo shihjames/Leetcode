@@ -1,6 +1,6 @@
 """
-Time = O(n)
-Spce = O(n)
+Time = O(row*col)
+Spce = O(min(row, col))
 """
 
 from collections import deque
