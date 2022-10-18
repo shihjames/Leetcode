@@ -5,22 +5,20 @@ class Node:
         self.val = val
         self.neighbors = neighbors if neighbors is not None else []
 """
-"""
-Time = O(V+E)
-Space = O(V)
-"""
-from collections import deque
+
 class Solution:
     def cloneGraph(self, node: 'Node') -> 'Node':
+        def dfs(cur_node):
+            if cur_node in cloned:
+                return cloned[cur_node]
+            copy = Node(cur_node.val)
+            cloned[cur_node] = copy
+            
+            for neighbor in cur_node.neighbors:
+                copy.neighbors.append(dfs(neighbor)) 
+            return copy
+        
         if not node:
             return None
-        cloned = {node: Node(node.val)}
-        queue = deque([node])
-        while queue:
-            cur = queue.pop()
-            for neighbor in cur.neighbors:
-                if neighbor not in cloned:
-                    cloned[neighbor] = Node(neighbor.val)
-                    queue.append(neighbor)
-                cloned[cur].neighbors.append(cloned[neighbor])
-        return cloned[node]
+        cloned = {}
+        return dfs(node)
