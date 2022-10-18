@@ -2,11 +2,12 @@ class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
         def dfs(row, col, count):
             if row < 0 or col < 0 or row >= rows or col >= cols or grid[row][col] == 0:
-                return count - 1
+                return 0
             grid[row][col] = 0
+            cur = 0
             for dr, dc in [(1, 0), (0, 1), (-1, 0), (0, -1)]:
-                count = dfs(row+dr, col+dc, count+1)
-            return count
+                cur += dfs(row+dr, col+dc, count+1)
+            return cur + 1
             
         
         rows, cols, mx_area = len(grid), len(grid[0]), 0
