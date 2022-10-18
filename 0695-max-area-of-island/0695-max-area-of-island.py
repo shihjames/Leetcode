@@ -13,7 +13,6 @@ class Solution:
                 cur += dfs(row+dr, col+dc)
             return cur + 1
             
-        
         rows, cols, mx_area = len(grid), len(grid[0]), 0
         for row in range(rows):
             for col in range(cols):
