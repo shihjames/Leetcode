@@ -1,5 +1,8 @@
+"""
+Time = O(rows*cols)
+Space = O(min(rows, cols))
+"""
 from collections import deque
-
 class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
         rows = len(grid)
