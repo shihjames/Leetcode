@@ -9,21 +9,18 @@ class Node:
 Time = O(V+E)
 Space = O(V)
 """
+from collections import deque
 class Solution:
     def cloneGraph(self, node: 'Node') -> 'Node':
-        def dfs(node):
-            if node in cloned:
-                return cloned[node]
-            
-            copy = Node(node.val)
-            cloned[node] = copy
-            
-            for neighbor in node.neighbors:
-                copy.neighbors.append(dfs(neighbor))
-            
-            return copy
-        
         if not node:
             return None
-        cloned = {}
-        return dfs(node)
+        cloned = {node: Node(node.val)}
+        queue = deque([node])
+        while queue:
+            cur = queue.pop()
+            for neighbor in cur.neighbors:
+                if neighbor not in cloned:
+                    cloned[neighbor] = Node(neighbor.val)
+                    queue.append(neighbor)
+                cloned[cur].neighbors.append(cloned[neighbor])
+        return cloned[node]
