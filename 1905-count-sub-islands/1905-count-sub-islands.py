@@ -1,3 +1,7 @@
+"""
+Time = O(rows*cols)
+Space = O(rows*cols)
+"""
 class Solution:
     def countSubIslands(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:
         def dfs(row, col):
@@ -13,6 +17,7 @@ class Solution:
             for dr, dc in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
                 if dfs(row + dr, col + dc) == 0:
                     is_sub_island = False
+            
             return is_sub_island
         
         rows, cols = len(grid2), len(grid2[0])
