@@ -2,7 +2,7 @@ class Solution:
     def countSubIslands(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:
         def dfs(row, col, isSubIsland):
             if row < 0 or col < 0 or row >= rows or col >= cols or grid2[row][col] == 0:
-                return isSubIsland
+                return 1
             cur_status = 1
             grid2[row][col] = 0
             if grid1[row][col] == 0:
