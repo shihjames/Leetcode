@@ -1,3 +1,7 @@
+"""
+Time = O(n)
+Space = O(1)
+"""
 class Solution:
     def rob(self, nums: List[int]) -> int:
         nums = [0] + nums
