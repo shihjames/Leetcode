@@ -1,5 +1,8 @@
+"""
+Time = O(V+E)
+Space = O(V+E)
+"""
 from collections import defaultdict
-
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         def hasCycle(course):
@@ -12,7 +15,7 @@ class Solution:
             visited.add(course)
             
             cycle = False
-            for prerequisite in neighbors[course]:
+            for prerequisite in graph[course]:
                 cycle = hasCycle(prerequisite)
                 if cycle:
                     break
@@ -21,12 +24,12 @@ class Solution:
             visited.remove(course)
             return cycle
             
-        neighbors = defaultdict(list)
+        graph = defaultdict(list)
         visited = set()
         checked = set()
         
         for post, pre in prerequisites:
-            neighbors[pre].append(post)
+            graph[pre].append(post)
         
         for courseId in range(numCourses):
             if hasCycle(courseId):
