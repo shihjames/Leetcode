@@ -1,4 +1,7 @@
-""
+"""
+Time = O(n*n!)
+Space = O(n!)
+"""
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         def backtrack(cur):
