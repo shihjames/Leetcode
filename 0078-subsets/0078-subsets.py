@@ -1,3 +1,7 @@
+"""
+Time = O(n*(2**n))
+Space = O(n)
+"""
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         def backtrack(cur, index):
