@@ -12,14 +12,11 @@ class Solution:
                 dfs(row + dr, col + dc)
             
         rows, cols = len(board), len(board[0])
-        borders = []
+        
         for row in range(rows):
             for col in range(cols):
                 if row == 0 or col == 0 or row == rows-1 or col == cols-1:
-                    borders.append((row, col))
-        
-        for row, col in borders:
-            dfs(row, col)
+                    dfs(row, col)
         
         for row in range(rows):
             for col in range(cols):
