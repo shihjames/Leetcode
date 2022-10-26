@@ -1,3 +1,7 @@
+"""
+Time = O(n)
+Space = O(1)
+"""
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         left, right = 0, len(s)-1
