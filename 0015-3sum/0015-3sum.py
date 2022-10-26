@@ -1,3 +1,7 @@
+"""
+Time = O(n**2)
+Space = O(n)
+"""
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         res = set()
