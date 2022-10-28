@@ -1,3 +1,7 @@
+"""
+Time = O(V+E)
+Space = O(V+E)
+"""
 class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
         def dfs(course):
