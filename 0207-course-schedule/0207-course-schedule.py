@@ -5,34 +5,30 @@ Space = O(V+E)
 from collections import defaultdict
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        def hasCycle(course):
-            if course in checked:
-                return False
-                
-            if course in visited:
+        def dfs(course):
+            if neighbors[course] == []:
                 return True
+            if course in visited:
+                return False
             
             visited.add(course)
             
-            cycle = False
-            for prerequisite in graph[course]:
-                cycle = hasCycle(prerequisite)
-                if cycle:
-                    break
+            for prerequisite in neighbors[course]:
+                if not dfs(prerequisite):
+                    return False
 
-            checked.add(course)
+            neighbors[course] = []
             visited.remove(course)
-            return cycle
+            return True
             
-        graph = defaultdict(list)
+        neighbors = defaultdict(list)
         visited = set()
-        checked = set()
         
         for post, pre in prerequisites:
-            graph[pre].append(post)
+            neighbors[pre].append(post)
         
         for courseId in range(numCourses):
-            if hasCycle(courseId):
+            if not dfs(courseId):
                 return False
         return True
             
