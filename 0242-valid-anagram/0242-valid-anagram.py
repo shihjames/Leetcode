@@ -1,14 +1,21 @@
-from collections import Counter
+"""
+Time = O(n)
+Space = O(1)
+"""
+from collections import defaultdict
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         if len(s) != len(t):
             return False
         
-        counter_s = Counter(s)
-        counter_t = Counter(t)
+        char_count = defaultdict(int)
         
-        for char, count in counter_s.items():
-            if count != counter_t[char]:
+        for char in s:
+            char_count[char] += 1 
+        
+        for char in t:
+            char_count[char] -= 1
+            if char_count[char] < 0:
                 return False
-            
+                
         return True
