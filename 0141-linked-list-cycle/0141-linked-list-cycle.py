@@ -6,6 +6,7 @@
 """
 Time = O(n)
 Space = O(1)
+Alternate solution: hashmap
 """
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
