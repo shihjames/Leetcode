@@ -12,9 +12,6 @@ class Solution:
         """
         Do not return anything, modify head in-place instead.
         """
-        "1 -> 2 -> 3 -> 4 -> 5"
-        "1 -> 5 -> 2 -> 4 -> 3"
-        "1 -> 2 -> 3    5 -> 4"
         slow = fast = head
         while fast and fast.next:
             slow = slow.next
