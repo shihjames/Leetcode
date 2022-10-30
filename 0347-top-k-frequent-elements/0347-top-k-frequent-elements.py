@@ -1,3 +1,7 @@
+"""
+Time = O(nlog(k))
+Space = O(n+k)
+"""
 from heapq import heappush, heappop
 from collections import Counter
 class Solution:
