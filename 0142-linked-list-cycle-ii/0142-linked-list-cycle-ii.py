@@ -4,6 +4,10 @@
 #         self.val = x
 #         self.next = None
 
+"""
+Time = O(n)
+Space = O(n)
+"""
 class Solution:
     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
         node_set = set()
