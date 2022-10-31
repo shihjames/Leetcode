@@ -7,10 +7,10 @@ class Solution:
         longest = 0
         
         for i in range(len(nums)):
-            cur_length = 0
+            cur_length = 1
             if nums[i] - 1 not in nums_set:
                 cur = nums[i]
-                while cur in nums_set:
+                while cur + 1 in nums_set:
                     cur_length += 1
                     cur += 1
             longest = max(longest, cur_length)
