@@ -1,3 +1,7 @@
+"""
+Time = O(n)
+Space = O(1)
+"""
 class Codec:
     def encode(self, strs: List[str]) -> str:
         """Encodes a list of strings to a single string.
@@ -18,7 +22,7 @@ class Codec:
             while s[j] != "#":
                 j += 1
             length = int(s[i: j])
-            ret.append(s[j+1:j+length+1])
+            ret.append(s[j+1: j+1+length])
             i = j + 1 + length
         return ret
 
