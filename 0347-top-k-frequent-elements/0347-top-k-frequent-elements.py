@@ -1,6 +1,6 @@
 """
-Time = O(nlog(k))
-Space = O(n+k)
+Time = O(n)
+Space = O(n)
 """
 from heapq import heappush, heappop
 from collections import Counter
@@ -20,8 +20,8 @@ class Solution:
                 res.extend(freq[i])
                 if len(res) == k:
                     return res
-        
-        
+                
+#         Time = O(nlog(k)) Space = O(n+k)
 #         counter = Counter(nums)
 #         heap = []
         
