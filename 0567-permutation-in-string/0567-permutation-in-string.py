@@ -1,4 +1,7 @@
-from collections import Counter
+"""
+Time O(26) + O(n) = O(n)
+Space = O(26) = O(1)
+"""
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
         if len(s1) > len(s2):
