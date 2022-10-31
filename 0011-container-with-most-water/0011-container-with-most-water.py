@@ -1,3 +1,7 @@
+"""
+Time = O(n)
+Space = O(1)
+"""
 class Solution:
     def maxArea(self, height: List[int]) -> int:
         left, right = 0, len(height)-1
