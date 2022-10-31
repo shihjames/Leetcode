@@ -1,15 +1,19 @@
+"""
+Time = O(n)
+Space = O(n)
+"""
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
         count = {}
         res = 0
         l = 0
-        most_freq = 1
+        # most_freq = 1
         
         for r in range(len(s)):
             count[s[r]] = 1 + count.get(s[r], 0)
-            most_freq = max(most_freq, count[s[r]])
+            # most_freq = max(most_freq, count[s[r]])
             
-            while (r - l + 1) - most_freq > k:
+            while (r - l + 1) - max(count.values()) > k:
                 count[s[l]] -= 1
                 l += 1
                 
