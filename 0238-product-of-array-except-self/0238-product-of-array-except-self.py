@@ -1,25 +1,23 @@
+"""
+input: arr = [1, 2, 3, 5]
+return: arr = [30, 15, 10, 6]
+[1, 1, 1*2, 1*2*3]
+[5*3*2, 5*3, 5, 1]
+"""
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        counter = Counter(nums)
-        zeros = counter[0]
-        if zeros >= 2:
-            return [0] * len(nums)
-        elif zeros == 1:
-            product = 1
-            zero_idx = 0
-            for i in range(len(nums)):
-                if nums[i] != 0:
-                    product *= nums[i]
-                    nums[i] = 0
-                else:
-                    zero_index = i
-            nums[zero_index] = product
-            return nums
-        else:
-            product = 1
-            for i in range(len(nums)):
-                product *= nums[i]
-            for i in range(len(nums)):
-                nums[i] = product // nums[i]
-            return nums
-                    
+        left = [1] * len(nums)
+        right = [1] * len(nums)
+        res = []
+        
+        for i in range(1, len(nums)):
+            left[i] = left[i-1] * nums[i-1]
+        
+        for i in range(len(nums)-2, -1, -1):
+            right[i] = right[i+1] * nums[i+1]
+        
+        for i in range(len(nums)):
+            res.append(left[i] * right[i])
+            
+        return res
+        
