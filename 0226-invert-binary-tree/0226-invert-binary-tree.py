@@ -5,6 +5,10 @@
 #         self.left = left
 #         self.right = right
 
+"""
+Time = O(n)
+Space = O(h)
+"""
 # from collections import deque
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
