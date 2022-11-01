@@ -5,19 +5,17 @@
 #         self.left = left
 #         self.right = right
 
-from heapq import heappush, heappop
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         def dfs(node):
             if node:
-                heappush(heap, -node.val)
-                if len(heap) > k:
-                    heappop(heap)
                 dfs(node.left)
+                if len(preorder) == k:
+                    return 
+                preorder.append(node.val)
                 dfs(node.right)
-                
-        heap = []
+        
+        preorder = []
         dfs(root)
-        return -heap[0]
-        
-        
+        print(preorder)
+        return preorder[-1]
