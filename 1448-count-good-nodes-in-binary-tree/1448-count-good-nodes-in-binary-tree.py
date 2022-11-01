@@ -4,22 +4,25 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+"""
+Time = O(n)
+Space = O(h)
+"""
 class Solution:
     def goodNodes(self, root: TreeNode) -> int:
-        def dfs(node, stack):
+        def dfs(node, cur_max):
             nonlocal count
-            if node:
-                cur_max = 0 if not stack else stack[-1][1]
-                if not stack or node.val >= cur_max:
-                    count += 1
-                    cur_max = node.val
-                else:
-                    cur_max = stack[-1][1]
-                dfs(node.left, stack + [(node.val, cur_max)])
-                dfs(node.right, stack + [(node.val, cur_max)])
+            if node.val >= cur_max:
+                count += 1
+            new_max = max(cur_max, node.val)
+            if node.left:
+                dfs(node.left, new_max)
+            if node.right:
+                dfs(node.right, new_max)
         
         count = 0
-        dfs(root, [])
+        dfs(root, float("-inf"))
         return count
             
                 
