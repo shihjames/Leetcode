@@ -5,6 +5,10 @@
 #         self.left = left
 #         self.right = right
 
+"""
+Time = O(n)
+Space = O(n)
+"""
 from collections import deque
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
