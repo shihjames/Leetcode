@@ -4,6 +4,11 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+"""
+Time = O(n)
+Space = O(h)
+"""
 class Solution:
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
         def helper(root):
