@@ -5,6 +5,10 @@
 #         self.left = left
 #         self.right = right
 
+"""
+Time = O(n)
+Space = O(w)
+"""
 from collections import deque
 class Solution:
     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
