@@ -5,10 +5,15 @@
 #         self.left = left
 #         self.right = right
 
+"""
+Time = O(n)
+Space = O(n)
+"""
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         def dfs(node):
             if node:
+                print(node.val)
                 dfs(node.left)
                 if len(preorder) == k:
                     return 
@@ -17,5 +22,4 @@ class Solution:
         
         preorder = []
         dfs(root)
-        print(preorder)
         return preorder[-1]
