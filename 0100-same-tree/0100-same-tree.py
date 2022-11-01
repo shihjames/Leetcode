@@ -28,7 +28,7 @@ class Solution:
             if not check(p_node, q_node):
                 return False
             
-            if  q_node:
+            if p_node and q_node:
                 queue.append((p_node.left, q_node.left))
                 queue.append((p_node.right, q_node.right))
         
