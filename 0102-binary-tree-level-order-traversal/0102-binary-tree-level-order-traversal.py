@@ -5,6 +5,10 @@
 #         self.left = left
 #         self.right = right
 
+"""
+Time = O(n)
+Space = O(n)
+"""
 from collections import deque 
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
@@ -17,12 +21,11 @@ class Solution:
             level = []
             for i in range(len(queue)):
                 cur = queue.popleft()
-                if cur:
-                    level.append(cur.val)
-                    if cur.left:
-                        queue.append(cur.left)
-                    if cur.right:
-                        queue.append(cur.right)
+                level.append(cur.val)
+                if cur.left:
+                    queue.append(cur.left)
+                if cur.right:
+                    queue.append(cur.right)
             res.append(level)
         
         return res
