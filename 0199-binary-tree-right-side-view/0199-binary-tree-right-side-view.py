@@ -4,18 +4,24 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+from collections import deque
 class Solution:
     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
+        right = []
         if not root:
-            return []
+            return right
         queue = deque([root])
-        right_side = []
+        # BFS
         while queue:
-            right_side.append(queue[-1].val)
+            level_right = None
             for i in range(len(queue)):
-                node = queue.popleft()
-                if node.left:
-                    queue.append(node.left)
-                if node.right:
-                    queue.append(node.right)
-        return right_side
+                cur = queue.popleft()
+                level_right = cur.val
+                if cur.left:
+                    queue.append(cur.left)
+                if cur.right:
+                    queue.append(cur.right)
+            right.append(level_right)
+        
+        return right
