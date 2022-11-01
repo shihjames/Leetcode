@@ -4,6 +4,11 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+"""
+Time = O(n)
+Space = O(h)
+"""
 class Solution:
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
         def helper(root):
