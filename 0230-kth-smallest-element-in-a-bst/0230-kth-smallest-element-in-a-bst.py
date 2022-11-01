@@ -12,14 +12,18 @@ Space = O(n)
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         def dfs(node):
+            nonlocal count, k_smallest
             if node:
-                print(node.val)
                 dfs(node.left)
-                if len(preorder) == k:
+                count += 1
+                if count == k:
+                    k_smallest = node.val
                     return 
-                preorder.append(node.val)
-                dfs(node.right)
+
+                if count < k:
+                    dfs(node.right)
         
-        preorder = []
+        k_smallest = None
+        count = 0
         dfs(root)
-        return preorder[-1]
+        return k_smallest
