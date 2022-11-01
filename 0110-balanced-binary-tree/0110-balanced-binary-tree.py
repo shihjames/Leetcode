@@ -8,19 +8,13 @@ class Solution:
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
         def helper(root):
             if not root:
-                return 0
-
+                return (True, 0)
+            
             left = helper(root.left)
-            if left == -1:
-                return -1
-
             right = helper(root.right)
-            if right == -1:
-                return -1
 
-            if abs(left - right) > 1:
-                return -1
+            balanced = left[0] and right[0] and abs(left[1] - right[1]) <= 1
 
-            return max(left, right) + 1
+            return balanced, max(left[1], right[1]) + 1
         
-        return True if helper(root) != -1 else False
+        return helper(root)[0]
