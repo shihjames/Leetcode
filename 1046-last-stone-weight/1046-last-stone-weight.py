@@ -13,7 +13,6 @@ class Solution:
         while len(heap) > 1:
             s1 = -heappop(heap)
             s2 = -heappop(heap)
-            print(s1, s2)
             if s1 > s2:
                 heappush(heap, -(s1 - s2))
         
