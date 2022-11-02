@@ -1,3 +1,7 @@
+"""
+Time = init: O(nlog(k)), add: O(log(k))
+Sapce = O(n)
+"""
 from heapq import heappush, heappop, heappushpop
 class KthLargest:
 
