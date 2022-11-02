@@ -1,3 +1,7 @@
+"""
+Time = O(nlog(k))
+Space = O(k)
+"""
 from heapq import heappush, heappop
 class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
