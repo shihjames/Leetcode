@@ -6,6 +6,7 @@ class Solution:
             # Length of cur_str equals to n -> Finish generating
             if len(cur_str) == n * 2:
                 res.append(cur_str)
+                return
             # check numbers of left paren and right paren:
             if left < n:
                 helper(left + 1, right, cur_str + "(")
