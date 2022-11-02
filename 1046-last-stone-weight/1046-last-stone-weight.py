@@ -1,3 +1,7 @@
+"""
+Time = O(nlog(n))
+Space = O(n)
+"""
 from heapq import heappush, heappop
 class Solution:
     def lastStoneWeight(self, stones: List[int]) -> int:
