@@ -1,3 +1,7 @@
+"""
+Time = O(n)
+Space = O(1)
+"""
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
         cur_sum = nums[0]
