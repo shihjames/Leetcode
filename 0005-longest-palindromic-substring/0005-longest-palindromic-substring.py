@@ -1,3 +1,7 @@
+"""
+Time = O(n**2)
+Space = O(1)
+"""
 class Solution:
     def longestPalindrome(self, s: str) -> str:
         res = ""
