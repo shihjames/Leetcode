@@ -11,7 +11,6 @@ class Solution:
             if s[index] == "0":
                 return 0
             
-            
             res = dfs(index + 1)
             
             if (index + 1) < len(s) and (s[index] == "1" or (s[index] == "2" and int(s[index + 1]) <= 6)):
