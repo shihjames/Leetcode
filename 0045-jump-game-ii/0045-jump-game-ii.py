@@ -1,6 +1,6 @@
 """
 Time = O(n)
-Space = O(n)
+Space = O(1)
 """
 class Solution:
     def jump(self, nums: List[int]) -> int:
