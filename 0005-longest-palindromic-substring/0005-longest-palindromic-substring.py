@@ -16,7 +16,6 @@ class Solution:
                     length = right - left + 1
                 left -= 1
                 right += 1
-            length = max(length, len(res))
             # Even case
             left, right = i, i + 1
             while left >= 0 and right < len(s) and s[left] == s[right]:
