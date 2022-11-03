@@ -1,13 +1,19 @@
 """
-Time = O()
+Time = O(n)
+Space = O(1)
 """
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
+        # Set goal to the last index
         goal = len(nums)-1
+        # Traverse backward
         for i in range(len(nums)-1, -1, -1):
+            # If current index can reach the goal
             if nums[i] + i >= goal:
+                # Update new goal position
                 goal = i
-                
+        
+        # Check goal position is at the first index
         return goal == 0
         
 #         def jumpHelper(index):
