@@ -2,6 +2,7 @@
 Time = O(V+E)
 Space = O(V+E)
 """
+from collections import defaultdict
 class Solution:
     def validTree(self, n: int, edges: List[List[int]]) -> bool:
         def dfs(node, prev):
