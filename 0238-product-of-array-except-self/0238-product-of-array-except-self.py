@@ -1,3 +1,7 @@
+"""
+Time = O(n)
+Space = O(1)
+"""
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         # Create to accumulate multiplication arrays
