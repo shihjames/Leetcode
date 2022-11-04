@@ -1,3 +1,7 @@
+"""
+Time = O(V+E)
+Space = O(V+E)
+"""
 class Solution:
     def validTree(self, n: int, edges: List[List[int]]) -> bool:
         def dfs(node, prev):
