@@ -1,3 +1,7 @@
+"""
+Time = O(n**2)
+Space = O(n**2)
+"""
 from collections import defaultdict
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
