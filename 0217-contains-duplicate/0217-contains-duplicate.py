@@ -4,9 +4,9 @@ Space = O(n)
 """
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        ele_count = {}
+        num_set = set()
         for num in nums:
-            if num in ele_count:
+            if num in num_set:
                 return True
-            ele_count[num] = 1
+            num_set.add(num)
         return False
