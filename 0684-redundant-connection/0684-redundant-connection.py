@@ -1,36 +1,42 @@
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.parent = self
+        self.size = 1
+        
 class Solution:
     def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
         def find(node):
-            p = parent[node]
-            while p != parent[p]:
-                parent[p] = parent[parent[p]]
-                p = parent[p]
-            return p
+            if node.parent is not node:
+                node.parent = find(node.parent)
+
+            return node.parent
         
         def union(n1, n2):
             p1 = find(n1)
             p2 = find(n2)
+            
             # Found nodes with same parents
-            if p1 == p2:
+            if p1 is p2:
                 return False
+            
             # p1 be the parent
-            if rank[p1] > rank[p2]:
-                parent[p2] = p1
-                rank[p1] += rank[p2]
+            if p1.size > p2.size:
+                p2.parent = p1
+                p1.size += p2.size
+            # p2 be the parent
             else:
-                parent[p1] = p2
-                rank[p2] += rank[p1]
+                p1.parent = p2
+                p2.size += p1.size
                 
             return True
-
-        parent = []
-        rank = []
-        for i in range(len(edges) + 1):
-            parent.append(i)
-            rank.append(1)
+        
+        nodes = {}
+        for i in range(1, len(edges) + 1):
+            nodes[i] = Node(i)
         
         for n1, n2 in edges:
-            if not union(n1, n2):
+            if not union(nodes[n1], nodes[n2]):
                 return [n1, n2]
             
         
