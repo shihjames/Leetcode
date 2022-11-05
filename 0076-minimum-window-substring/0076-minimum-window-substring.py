@@ -1,6 +1,7 @@
 """
 Time = O(n)
-Space = O(len(t))
+Space = O(t)
+where t is the len of t
 """
 from collections import Counter
 class Solution:
