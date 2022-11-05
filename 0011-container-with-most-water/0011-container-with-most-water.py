@@ -4,16 +4,21 @@ Space = O(1)
 """
 class Solution:
     def maxArea(self, height: List[int]) -> int:
-        left, right = 0, len(height)-1
-        max_area = 0
+        # Create two pointers
+        left = 0
+        right = len(height) - 1
+        cur_max_area = 0
+        
+        # Traverse through the array
         while left < right:
-            h = min(height[left], height[right])
+            # Calculate the current area
             w = right - left
-            max_area = max(max_area, h * w)
+            h = min(height[left], height[right])
+            cur_max_area = max(cur_max_area, w * h)
+            # move one of the pointer which points to the shorter wall
             if height[left] < height[right]:
                 left += 1
             else:
                 right -= 1
                 
-        return max_area
-            
+        return cur_max_area
