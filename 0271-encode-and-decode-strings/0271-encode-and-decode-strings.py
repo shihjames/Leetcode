@@ -1,6 +1,6 @@
 """
 Time = O(n)
-Space = O(n)
+Space = O(1)
 """
 class Codec:
     def encode(self, strs: List[str]) -> str:
