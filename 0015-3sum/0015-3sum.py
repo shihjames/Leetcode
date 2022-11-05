@@ -1,14 +1,9 @@
+"""
+Time = O(n**2)
+Space = O(1)
+"""
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        """
-        input: nums: List[int], contains duplicates, unsorted
-        output: res: List[List[int]], every possible combination, return [] if not found
-        1. Sort the array -> skip duplicates
-        2. Traverse through the numbers
-        2. Use two pointers to find valid combinations 
-        [-1, 0, 0, 1, 1, 1, 2, 3] -> [-1, 0, 1]
-          C  L  R
-        """
         def findComb(index):
             left = index + 1
             right = len(nums) - 1
