@@ -1,3 +1,7 @@
+"""
+Time = O(n)
+Space = O(n)
+"""
 class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
         # Create a stack
