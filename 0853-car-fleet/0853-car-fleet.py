@@ -5,26 +5,21 @@ Space = O(n)
 class Solution:
     def carFleet(self, target: int, position: List[int], speed: List[int]) -> int:
         pos_speed = []
-        # Create position and speed pair
         for i in range(len(position)):
             pos_speed.append((position[i], speed[i]))
+        
+        # Sort the list
         pos_speed.sort()
         
-        # Store car fleet(s)
         stack = []
         
-        # Reverse sorted order
+        # Traverse the pos_speed list reversely
         for pos, speed in pos_speed[::-1]:
+            # Calculate the time needed for current car to reach target
             time = (target - pos) / speed
-            # Check if there is a collision
-            if len(stack) >= 1 and time <= stack[-1]:
-                continue
-            # Stack is empty or no collision
-            else:
+            # Found car that can reach the car in its front
+            if not stack or time > stack[-1]:
                 stack.append(time)
-                
-        return len(stack)
-            
-                
         
+        return len(stack)
         
