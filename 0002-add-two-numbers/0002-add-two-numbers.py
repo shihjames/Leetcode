@@ -3,31 +3,33 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
-"""
-Time = O(max(m, n))
-Space = O(max(m, n))
-"""
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
-        dummy = cur = ListNode()
+        dummy = ListNode()
+        cur = dummy
         carry = 0
-        while l1 or l2:
+        
+        while l1 is not None or l2 is not None:
             if l1:
-                val1 = l1.val
+                l1_val = l1.val
                 l1 = l1.next
             else:
-                val1 = 0
+                l1_val = 0
+            
             if l2:
-                val2 = l2.val
+                l2_val = l2.val
                 l2 = l2.next
             else:
-                val2 = 0
-            cur_sum = val1 + val2 + carry
-            cur.next = ListNode(cur_sum % 10)
+                l2_val = 0
+                
+            cur_sum = l1_val + l2_val + carry
+            new_val = cur_sum % 10
             carry = cur_sum // 10
-            cur = cur.next 
             
+            cur.next = ListNode(new_val)
+            cur = cur.next
+        
         if carry != 0:
             cur.next = ListNode(carry)
-            
+        
         return dummy.next
