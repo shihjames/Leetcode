@@ -7,41 +7,33 @@
 
 """
 Time = O(n)
-Space = O(n)
+Space = O(d)
+where d is the diameter of the tree
 """
-from collections import deque 
+from collections import deque
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        if not root:
+            return []
+        
+        # Create a queue to store nodes in order
+        queue = deque([root])
         
         res = []
-        if not root:
-            return res
-        queue = deque([root])
-        # BFS
-        while queue:
-            level = []
-            for i in range(len(queue)):
-                cur = queue.popleft()
-                level.append(cur.val)
-                if cur.left:
-                    queue.append(cur.left)
-                if cur.right:
-                    queue.append(cur.right)
-            res.append(level)
         
+        # Iterate throught the tree in up -> down left -> right order
+        while queue:
+            # Create an array to store nodes in the same level
+            level_nodes = []
+            # Pop out all nodes in the queue and push their children (if exists)
+            for i in range(len(queue)):
+                node = queue.popleft()
+                level_nodes.append(node.val)
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+            # Add the array of nodes in the same level to the res
+            res.append(level_nodes)
+            
         return res
-    
-        # def dfs(node, level):
-        #     if level == len(res):
-        #         res.append([])
-        #     res[level].append(node.val)
-        #     if node.left:
-        #         dfs(node.left, level + 1)
-        #     if node.right:
-        #         dfs(node.right, level + 1)
-        # if not root:
-        #     return []
-        # res = []
-        # dfs(root, 0)
-        # return res
-                    
