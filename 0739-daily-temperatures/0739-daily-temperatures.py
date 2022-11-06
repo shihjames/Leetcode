@@ -1,3 +1,7 @@
+"""
+Time = O(n)
+Space = O(n)
+"""
 class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
         stack = []
