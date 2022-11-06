@@ -9,6 +9,7 @@ class Solution:
             # Empty stack or not a warmer day
             if len(stack) == 0 or cur_temp <= stack[-1][0]:
                 stack.append((cur_temp, i))
+            
             # Found next warmer day
             else:
                 while stack and stack[-1][0] < cur_temp:
