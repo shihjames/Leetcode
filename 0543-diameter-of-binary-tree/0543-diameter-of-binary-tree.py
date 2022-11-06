@@ -11,18 +11,18 @@ Space = O(h)
 """
 class Solution:
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
-        def helper(root):
+        def getDiameter(node):
             nonlocal diameter
-            if not root:
+            if not node:
                 return 0
-            left = helper(root.left)
-            right = helper(root.right)
             
-            diameter = max(diameter, left + right)
+            left_diameter = getDiameter(node.left)
+            right_diameter = getDiameter(node.right)
             
-            return max(left, right) + 1
+            diameter = max(diameter, left_diameter + right_diameter)
+            
+            return max(left_diameter, right_diameter) + 1
         
         diameter = 0
-        helper(root)
-        
+        getDiameter(root)
         return diameter
