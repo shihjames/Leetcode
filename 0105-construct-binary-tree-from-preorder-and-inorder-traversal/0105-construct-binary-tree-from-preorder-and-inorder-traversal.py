@@ -5,25 +5,31 @@
 #         self.left = left
 #         self.right = right
 
-from collections import defaultdict, deque
+from collections import deque
 class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
-        def buildHelper(left, right):
-            if left > right:
+        
+        def helper(start, end):
+            if start > end:
                 return None
-            root_val = queue.popleft()
+            
+            root_val = preorder.popleft()
             root = TreeNode(root_val)
             
-            root.left = buildHelper(left, inorder_idx[root_val] - 1)
-            root.right = buildHelper(inorder_idx[root_val] + 1, right)
+            root_index = inorder_idx[root_val]
+            
+            root.left = helper(start, root_index - 1)
+            root.right = helper(root_index + 1, end)
             
             return root
-
+            
         
-        inorder_idx = defaultdict(int)
-        queue = deque(preorder)
+        inorder_idx = {}
+        preorder = deque(preorder)
         
-        for index, value in enumerate(inorder):
-            inorder_idx[value] = index
+        for index, node in enumerate(inorder):
+            inorder_idx[node] = index
+            
+        return helper(0, len(inorder) - 1)
         
-        return buildHelper(0, len(preorder)-1)
+        
