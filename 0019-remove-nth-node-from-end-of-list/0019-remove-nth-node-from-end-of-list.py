@@ -3,6 +3,11 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+
+"""
+Time = O(n)
+Space = O(1)
+"""
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         dummy = ListNode(0, head)
