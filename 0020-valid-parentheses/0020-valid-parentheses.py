@@ -4,14 +4,22 @@ Space = O(n)
 """
 class Solution:
     def isValid(self, s: str) -> bool:
-        paren_dict = {")": "(", "]": "[", "}": "{"}
         stack = []
+        brackets = {")": "(", "]": "[", "}": "{"}
+        # Traverse to all brackets
         for i in range(len(s)):
             if s[i] in "([{":
                 stack.append(s[i])
             else:
-                if not stack or paren_dict[s[i]] != stack[-1]:
-                    return False
+                if stack:
+                    top = stack[-1]
+                    # Check if they are matched
+                    if top != brackets[s[i]]:
+                        return False
+                    else:
+                        stack.pop()
                 else:
-                    stack.pop()
+                    return False
+        
         return len(stack) == 0
+            
