@@ -1,17 +1,19 @@
-"""
-Time = O(n)
-Space = O(n)
-"""
 class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
         stack = []
-        ans = [0] * len(temperatures)
-        for index, temp in enumerate(temperatures):
-            while stack and stack[-1][0] < temp:
-                prev_temp, prev_index = stack.pop()
-                ans[prev_index] = index - prev_index
-            stack.append((temp, index))
-        return ans
-                
-                    
-            
+        res = [0] * len(temperatures)
+        
+        # traverse the list
+        for i in range(len(temperatures)):
+            cur_temp = temperatures[i]
+            # Empty stack or not a warmer day
+            if len(stack) == 0 or cur_temp <= stack[-1][0]:
+                stack.append((cur_temp, i))
+            # Found next warmer day
+            else:
+                while stack and stack[-1][0] < cur_temp:
+                    prev_temp, index = stack.pop()
+                    res[index] = i - index
+                stack.append((cur_temp, i))
+        
+        return res
