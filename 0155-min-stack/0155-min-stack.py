@@ -1,3 +1,7 @@
+"""
+Time = O(1)
+Space = O(n)
+"""
 class MinStack:
 
     def __init__(self):
