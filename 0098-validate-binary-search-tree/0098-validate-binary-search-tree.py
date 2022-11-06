@@ -4,21 +4,15 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-
-"""
-Time = O(n)
-Space = O(n)
-"""
-from collections import deque
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        queue = deque([(-float("inf"), root, float("inf"))])
-        while queue:
-            low, node, high = queue.popleft()
+        def helper(node, low, high):
+            if not node:
+                return True
+            
             if not low < node.val < high:
                 return False
-            if node.left:
-                queue.append((low, node.left, node.val))
-            if node.right:
-                queue.append((node.val, node.right, high))
-        return True
+            
+            return helper(node.left, low, node.val) and helper(node.right, node.val, high)
+        
+        return helper(root, -float("inf"), float("inf"))
