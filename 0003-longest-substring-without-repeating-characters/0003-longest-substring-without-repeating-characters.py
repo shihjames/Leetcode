@@ -1,3 +1,7 @@
+"""
+Time = O(n)
+Space = O(n)
+"""
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         if not s:
