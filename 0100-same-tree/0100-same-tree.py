@@ -4,6 +4,11 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+"""
+Time = O(n)
+Space = O(h)
+"""
 class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         def dfs(node1, node2):
