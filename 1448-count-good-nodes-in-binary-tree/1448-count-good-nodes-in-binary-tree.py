@@ -4,6 +4,11 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+"""
+Time = O(n)
+Space = O(1)
+"""
 class Solution:
     def goodNodes(self, root: TreeNode) -> int:
         def dfs(node, cur_max):
