@@ -4,6 +4,10 @@
 #         self.val = x
 #         self.next = None
 
+"""
+Time = O(n)
+Space = O(1)
+"""
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
         slow = head
