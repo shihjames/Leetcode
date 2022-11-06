@@ -5,27 +5,33 @@
 #         self.left = left
 #         self.right = right
 
-"""
-Time = O(n)
-Space = O(w)
-"""
 from collections import deque
 class Solution:
     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
-        right = []
         if not root:
-            return right
-        queue = deque([root])
-        # BFS
-        while queue:
-            level_right = None
-            for i in range(len(queue)):
-                cur = queue.popleft()
-                level_right = cur.val
-                if cur.left:
-                    queue.append(cur.left)
-                if cur.right:
-                    queue.append(cur.right)
-            right.append(level_right)
+            return []
         
-        return right
+        # Create a queue to store nodes in level order
+        queue = deque([root])
+        
+        right_side_view = []
+        
+        # Traverse the tree in level order
+        while queue:
+            # Store nodes in the same level
+            queue_len = len(queue)
+            for i in range(queue_len):
+                node = queue.popleft()
+                # Push the rightmost node to the result (right_side_view)
+                if i == queue_len - 1:
+                    right_side_view.append(node.val)
+                    
+                if node.left:
+                    queue.append(node.left)
+                
+                if node.right:
+                    queue.append(node.right)
+                
+        return right_side_view
+                
+            
