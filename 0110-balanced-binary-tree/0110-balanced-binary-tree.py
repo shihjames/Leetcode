@@ -11,15 +11,21 @@ Space = O(h)
 """
 class Solution:
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
-        def helper(root):
-            if not root:
-                return (True, 0)
+        def dfs(node):
+            if not node:
+                return 0
             
-            left = helper(root.left)
-            right = helper(root.right)
-
-            balanced = left[0] and right[0] and abs(left[1] - right[1]) <= 1
-
-            return balanced, max(left[1], right[1]) + 1
+            left_height = dfs(node.left)
+            if left_height == -1:
+                return -1
+            
+            right_height = dfs(node.right)
+            if right_height == -1:
+                return -1
+            
+            if abs(left_height - right_height) > 1:
+                return -1
+            
+            return max(left_height, right_height) + 1
         
-        return helper(root)[0]
+        return dfs(root) != -1
