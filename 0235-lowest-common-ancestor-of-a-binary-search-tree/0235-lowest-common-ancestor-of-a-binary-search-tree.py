@@ -5,6 +5,10 @@
 #         self.left = None
 #         self.right = None
 
+"""
+Time = O(n)
+Space = O(h)
+"""
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         root_val = root.val
