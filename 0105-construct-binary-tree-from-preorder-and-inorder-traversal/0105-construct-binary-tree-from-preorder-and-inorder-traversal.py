@@ -5,16 +5,24 @@
 #         self.left = left
 #         self.right = right
 
+"""
+Time = O(n)
+Space = O(n)
+"""
 from collections import deque
 class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
         
         def helper(start, end):
+            nonlocal preorder_idx
+            
             if start > end:
                 return None
             
-            root_val = preorder.popleft()
+            root_val = preorder[preorder_idx]
             root = TreeNode(root_val)
+            
+            preorder_idx += 1
             
             root_index = inorder_idx[root_val]
             
@@ -22,10 +30,9 @@ class Solution:
             root.right = helper(root_index + 1, end)
             
             return root
-            
         
         inorder_idx = {}
-        preorder = deque(preorder)
+        preorder_idx = 0
         
         for index, node in enumerate(inorder):
             inorder_idx[node] = index
