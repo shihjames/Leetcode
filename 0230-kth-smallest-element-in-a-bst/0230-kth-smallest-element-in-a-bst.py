@@ -4,6 +4,11 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+"""
+Time = O(n)
+Space = O(h)
+"""
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         def dfs(node):
@@ -19,7 +24,8 @@ class Solution:
                 k_smallest = node.val
                 return
             
-            dfs(node.right)
+            if k_smallest is None:
+                dfs(node.right)
             
         node_cnt = 0
         k_smallest = None
