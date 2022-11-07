@@ -4,6 +4,10 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+"""
+Time = O(n)
+Space - O(h)
+"""
 class Solution:
     def tree2str(self, root: Optional[TreeNode]) -> str:
         def dfs(node):
