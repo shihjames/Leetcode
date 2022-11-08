@@ -1,6 +1,6 @@
 """
 Time = O(nlog(n))
-Space = O(log(n))
+Space = O(1)
 """
 class Solution:
     def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
