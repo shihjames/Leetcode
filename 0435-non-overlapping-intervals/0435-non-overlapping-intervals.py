@@ -1,16 +1,19 @@
+"""
+Time = O(nlog(n))
+Space = O(log(n))
+"""
 class Solution:
     def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
         intervals.sort()
-        res = [intervals[0]]
+        prev_end = intervals[0][1]
+        count = 0
         
         for interval in intervals[1:]:
-            if interval[0] < res[-1][1]:
-                if interval[1] > res[-1][1]:
-                    continue
-                else:
-                    res[-1] = interval
+            if interval[0] < prev_end:
+                prev_end = min(prev_end, interval[1])
+                count += 1
             else:
-                res.append(interval)
+                prev_end = interval[1]
         
-        return len(intervals) - len(res)
+        return count
         
