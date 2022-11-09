@@ -8,13 +8,12 @@ class StockSpanner:
         self.stack = []
 
     def next(self, price: int) -> int:
-        if not self.stack:
-            self.stack.append((price, 1))
-        else:
-            count = 0
-            while self.stack and self.stack[-1][0] <= price:
-                count += self.stack.pop()[1]
-            self.stack.append((price, count+1))
+        count = 0
+        
+        while self.stack and self.stack[-1][0] <= price:
+            count += self.stack.pop()[1]
+        self.stack.append((price, count+1))
+        
         return self.stack[-1][1]
 
 
