@@ -1,3 +1,7 @@
+"""
+Time = O(n)
+Space = O(n)
+"""
 class StockSpanner:
 
     def __init__(self):
