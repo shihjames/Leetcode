@@ -1,5 +1,5 @@
 """
-Time = O(n)
+Time = O(1)
 Space = O(n)
 """
 class StockSpanner:
