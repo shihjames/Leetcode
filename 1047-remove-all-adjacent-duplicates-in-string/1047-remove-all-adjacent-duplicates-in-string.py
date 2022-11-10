@@ -1,3 +1,7 @@
+"""
+Time = O(n)
+Space = O(n)
+"""
 class Solution:
     def removeDuplicates(self, s: str) -> str:
         stack = []
