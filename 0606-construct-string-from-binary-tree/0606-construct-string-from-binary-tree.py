@@ -4,32 +4,26 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-"""
-Time = O(n)
-Space - O(h)
-"""
 class Solution:
     def tree2str(self, root: Optional[TreeNode]) -> str:
         def dfs(node):
             nonlocal res
             
-            if not node:
-                return
-
             res += str(node.val)
             
             if not node.left and not node.right:
                 return
             
             res += "("
-            dfs(node.left)
+            if node.left:
+                dfs(node.left)
             res += ")"
-              
+            
             if node.right:
                 res += "("
                 dfs(node.right)
                 res += ")"
-        
+            
         res = ""
         dfs(root)
         return res
