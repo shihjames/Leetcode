@@ -1,3 +1,8 @@
+"""
+Time = O(nk)
+Sapce = O(n)
+where k is the length of words
+"""
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         word_dict = defaultdict(list)
@@ -8,4 +13,4 @@ class Solution:
                 chars[ord(s[i]) - ord("a")] += 1
             word_dict[tuple(chars)].append(s)
         
-        return [words for chars, words in word_dict.items()]
+        return word_dict.values()
