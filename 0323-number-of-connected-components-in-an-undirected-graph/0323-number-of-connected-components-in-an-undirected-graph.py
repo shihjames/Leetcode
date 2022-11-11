@@ -22,6 +22,6 @@ class Solution:
                 count += 1
                 dfs(node)
         
-        return count if count == n else count + n - len(visited)
+        return count + n - len(visited)
             
         
