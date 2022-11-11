@@ -1,6 +1,6 @@
 """
 Time = O(nk)
-Sapce = O(n)
+Sapce = O(nk)
 where k is the length of words
 """
 class Solution:
