@@ -11,7 +11,7 @@ class Solution:
             if s[i] == " " and not start:
                 continue
             elif s[i] == " " and start:
-                return length
+                break
             else:
                 start = True
                 length += 1
