@@ -1,3 +1,8 @@
+"""
+Time = O(ns)
+Sapce = O(1)
+where s is the min length of all words
+"""
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
         min_len = float("inf")
