@@ -1,3 +1,7 @@
+"""
+Time = O(n)
+Space = O(1)
+"""
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
         chars = {}
