@@ -10,7 +10,7 @@ class Solution:
             local, domain = email.split("@")
             target = local.split("+")[0]
             alias = "".join(target.split("."))
-            email_set.add((alias+"@"+domain))
+            email_set.add((alias + "@" + domain))
         
         return len(email_set)
             
