@@ -1,6 +1,7 @@
 """
-Time = O()
+Time = O(nm)
 Sapce = O(1)
+where m is the minimum length of string
 """
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
