@@ -8,14 +8,14 @@ class Solution:
         if len(s) != len(t):
             return False
         
-        char_count = defaultdict(int)
+        chars = [0] * 26
         
-        for char in s:
-            char_count[char] += 1 
+        for i in range(len(s)):
+            chars[ord(s[i]) - ord("a")] += 1
         
-        for char in t:
-            char_count[char] -= 1
-            if char_count[char] < 0:
+        for i in range(len(t)):
+            if chars[ord(t[i]) - ord("a")] == 0:
                 return False
-                
+            chars[ord(t[i]) - ord("a")] -= 1
+        
         return True
