@@ -1,3 +1,8 @@
+"""
+Time = O(log(n))
+Space = O(n)
+"""
+from heapq import heappush, heappop
 class MedianFinder:
 
     def __init__(self):
@@ -9,7 +14,6 @@ class MedianFinder:
         heappush(self.min_heap, -heappop(self.max_heap))
         if len(self.min_heap) > len(self.max_heap):
             heappush(self.max_heap, -heappop(self.min_heap))
-
 
     def findMedian(self) -> float:
         # Even
