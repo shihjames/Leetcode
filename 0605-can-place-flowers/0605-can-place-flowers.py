@@ -1,4 +1,7 @@
-
+"""
+Time = O(n)
+Space = O(1)
+"""
 class Solution:
     def canPlaceFlowers(self, flowerbed: List[int], n: int) -> bool:
         count = 0
