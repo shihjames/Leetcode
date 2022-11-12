@@ -1,3 +1,7 @@
+"""
+Time = O(n)
+Space = O(1)
+"""
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
         left = 0
