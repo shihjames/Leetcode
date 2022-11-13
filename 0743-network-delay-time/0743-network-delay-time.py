@@ -1,3 +1,7 @@
+"""
+Time = O(Elog(V))
+Space = O(V+E)
+"""
 from heapq import heappush, heappop
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
