@@ -1,3 +1,7 @@
+"""
+Time = O(rows * cols)
+Space = O(max(rows, cols))
+"""
 from collections import deque
 class Solution:
     def nearestExit(self, maze: List[List[str]], entrance: List[int]) -> int:
