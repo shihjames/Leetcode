@@ -10,10 +10,14 @@ class Solution:
             row, col, dis = queue.popleft()
             for dr, dc in directions:
                 new_row, new_col = row + dr, col + dc
+                # Valid move
                 if 0 <= new_row < rows and 0 <= new_col < cols and maze[new_row][new_col] == ".":
+                    # Return if reach exit
                     if new_row == 0 or new_row == rows - 1 or new_col == 0 or new_col == cols - 1:
                         return dis + 1
+                    # Mark as visited
                     maze[new_row][new_col] = "+"
+                    # Add position to queue
                     queue.append((new_row, new_col, dis+1))
         return -1
                     
