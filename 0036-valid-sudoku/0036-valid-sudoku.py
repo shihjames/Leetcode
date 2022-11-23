@@ -5,11 +5,6 @@ Space = O(n**2)
 from collections import defaultdict
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
-        """
-        1. Create three kind of sets (row, column, box)
-        2. Traverse the board one by one
-        3. Check if the current number is already in the sets
-        """
         
         rows = defaultdict(set)
         cols = defaultdict(set)
