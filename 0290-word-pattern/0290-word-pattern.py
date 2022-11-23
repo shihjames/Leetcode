@@ -1,3 +1,8 @@
+"""
+Time = O(n)
+Space = O(m)
+where m = # of unique chars in pattern and words in s
+"""
 class Solution:
     def wordPattern(self, pattern: str, s: str) -> bool:
         patterns = {}
