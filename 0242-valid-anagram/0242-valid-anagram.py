@@ -1,21 +1,15 @@
-"""
-Time = O(n)
-Space = O(1)
-"""
-from collections import defaultdict
+from collections import Counter
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
+        # Different length
         if len(s) != len(t):
             return False
-        
-        chars = [0] * 26
-        
-        for i in range(len(s)):
-            chars[ord(s[i]) - ord("a")] += 1
-        
-        for i in range(len(t)):
-            if chars[ord(t[i]) - ord("a")] == 0:
+        # Creat dictionary to count number of chars
+        counter = Counter(s)
+        for char in t:
+            if char not in counter or counter[char] == 0:
                 return False
-            chars[ord(t[i]) - ord("a")] -= 1
-        
+            else:
+                counter[char] -= 1
         return True
+                
