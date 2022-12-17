@@ -1,12 +1,10 @@
-"""
-Time = O(n)
-Space = O(n)
-"""
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
         num_set = set()
         for num in nums:
-            if num in num_set:
+            if num not in num_set:
+                num_set.add(num)
+            else:
                 return True
-            num_set.add(num)
+            
         return False
