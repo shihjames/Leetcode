@@ -1,19 +1,14 @@
-"""
-Time = O(n)
-Space = O(1)
-"""
 class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
-        if len(s) > len(t):
-            return False
         if s == "":
             return True
         
-        index = 0
+        queue = deque(list(s))
+        
         for i in range(len(t)):
-            if s[index] == t[i]:
-                index += 1
-            if index == len(s):
-                return True
-            
+            if t[i] == queue[0]:
+                queue.popleft()
+                if len(queue) == 0:
+                    return True
+        
         return False
