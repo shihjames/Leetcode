@@ -1,3 +1,7 @@
+"""
+Time = O(n)
+Space = O(n)
+"""
 class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
         if s == "":
