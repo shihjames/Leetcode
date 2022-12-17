@@ -1,3 +1,7 @@
+"""
+Time = O(n)
+Space = O(n)
+"""
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
         s = s.split()
